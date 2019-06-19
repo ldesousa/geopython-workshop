@@ -4,9 +4,13 @@
 
 ### Requirements
 
-TODO
+The workshop requires [Docker](https://docker.com) on your system
 
 ### Installing the Workshop
+
+```bash
+docker run --rm -it -p 8002:8000 geopython/geopython-workshop
+```
 
 TODO
 

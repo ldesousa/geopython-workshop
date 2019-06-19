@@ -26,7 +26,7 @@ nav:
 
 theme: slate
 
-edit_uri: edit/master/workshop/docs
+edit_uri: edit/foss4g-2019/workshop/docs
 
 plugins:
     - search

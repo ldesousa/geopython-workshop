@@ -1,0 +1,22 @@
+version: '3'
+
+services:
+  pygeoapi:
+    image: geopython/pygeoapi
+    ports:
+      - 5000:80
+     
+  pycsw:
+    image: geopython/pycsw
+    ports:
+      - 8001:8000
+
+  jupyter:
+    image: jupyter/minimal-notebook
+    ports:
+      - 8888:8888
+
+  workshop:
+    image: ..
+    ports:
+      - 8000:8000

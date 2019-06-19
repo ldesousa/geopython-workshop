@@ -39,7 +39,7 @@ vi mkdocs.yml  # add to navigation section
 # edit any other files necessary which may want to link to the new page
 git add docs/new-page.md
 git commit -m 'add new page on topic x' docs/new-page.md mkdocs.yml
-git push origin master
+git push origin foss4g-2019
 ```
 
 ### Updating a page
