@@ -4,23 +4,49 @@
 
 ### Requirements
 
-The workshop requires [Docker](https://docker.com) on your system
+The workshop requires [Docker](https://docker.com) 
+and [Docker Compose](https://docs.docker.com/compose/) on your system
 
-### Installing the Workshop
+### Building
+
+(We should provide the Docker Images on DockerHub and have all content 
+Docker-Volume-mounted)
 
 ```bash
-docker run --rm -it -p 8002:8000 geopython/geopython-workshop
-```
+cd workshop/jupyter
+./build.sh
 
-TODO
+```
 
 ## Running
 
-TODO
+All services are started using a [Docker Compose file](workshop/docker-compose.yml).
+
+
+```bash
+cd workshop
+./start.sh
+
+# Browse to http://127.0.01:8000 for workshop home page (the docs)
+# Browse to http://127.0.01:8888 for workshop Jupyter Notebooks
+# Browse to http://127.0.01:5000 for workshop pygeoapi service
+# Browse to http://127.0.01:8001 for workshop pycsw service
+# NB Possibly best if we add a frontend or use docs ("home") as entrypoint
+./stop.sh
+
+```
+
+NB Jupyter notebook needs a **token**. The token is displayed on startup:
+
+`http://127.0.0.1:8888/?token=<longtokenhexstring>`.
+
+As Docker Compose may run in background you can make logging 
+output visible via `docker logs --follow geopython_ws_jupyter` .
 
 ### Bugs and Issues
 
-All bugs, enhancements and issues are managed on [GitHub](https://github.com/geopython/geopython-workshop/issues).
+All bugs, enhancements and issues are managed 
+on [GitHub](https://github.com/geopython/geopython-workshop/issues).
 
 ## Contact
 

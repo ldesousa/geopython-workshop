@@ -1,3 +1,0 @@
-jupyter
-mkdocs
-mkdocs-bootswatch

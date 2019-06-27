@@ -1,1 +1,0 @@
-# Emerging Technology and Trends
