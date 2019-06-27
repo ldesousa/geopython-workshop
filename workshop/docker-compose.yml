@@ -1,0 +1,35 @@
+version: "3"
+
+services:
+
+  home:
+    container_name: geopython_ws_home
+    build:
+      context: home
+#      dockerfile: Dockerfile
+    ports:
+      - 8000:4000
+
+  jupyter:
+
+    image: geopython/workshop:latest
+
+    container_name: geopython_ws_jupyter
+
+    ports:
+      - "8888:8888"
+
+    volumes:
+      - ./jupyter/content:/jupyter/content:rw
+
+  pygeoapi:
+    container_name: geopython_ws_pygeoapi
+    image: geopython/pygeoapi:latest
+    ports:
+      - 5000:80
+
+  pycsw:
+    container_name: pycsw
+    image: geopython/pycsw
+    ports:
+      - 8001:8000
