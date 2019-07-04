@@ -1,3 +1,4 @@
+[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/geopython/geopython-workshop/foss4g-2019?filepath=workshop%2Fjupyter%2Fcontent%2Fnotebooks%2F00_introduction_to_geopython.ipynb)
 # Doing Geospatial in Python
 
 ## Installation
