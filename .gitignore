@@ -1,4 +1,5 @@
 # build pages
 workshop/site
 .ipynb_checkpoints
+*.iml
 
