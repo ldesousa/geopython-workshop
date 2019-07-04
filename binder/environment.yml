@@ -1,0 +1,7 @@
+name: geopython-workshop
+channels:
+  - conda-forge
+dependencies:
+  - python=3.7
+  - fiona
+  - shapely
