@@ -3,5 +3,10 @@ channels:
   - conda-forge
 dependencies:
   - python=3.7
-  - fiona
+  - pyproj
   - shapely
+  - gdal
+  - fiona
+  - rasterio
+  - folium
+  - owslib
