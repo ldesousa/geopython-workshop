@@ -1,3 +1,7 @@
 Shapely
 OWSLib
+geopandas
 folium
+bokeh
+ipyleaflet
+pandas-bokeh

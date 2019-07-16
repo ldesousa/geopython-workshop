@@ -8,5 +8,9 @@ dependencies:
   - gdal
   - fiona
   - rasterio
+  - geopandas
   - folium
   - owslib
+  - bokeh
+  - ipyleaflet
+  - pandas-bokeh
