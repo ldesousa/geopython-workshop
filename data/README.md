@@ -1,3 +1,0 @@
-# Workshop Data
-
-TODO
