@@ -13,4 +13,6 @@ dependencies:
   - owslib
   - bokeh
   - ipyleaflet
-  - pandas-bokeh
+  - pip
+  - pip:
+    - pandas-bokeh
