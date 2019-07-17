@@ -1,7 +1,7 @@
 # Datasets
 
 The datasets within this directory originate from the 
-[Natural Earth open datasets](http://www.naturalearthdata.com/) (NE) mostly
+[Natural Earth open datasets](https://www.naturalearthdata.com) (NE) mostly
 Small scale data, 1:110m. 
 
 As the NE data is encoded in WGS84 (EPSG:4326), which
