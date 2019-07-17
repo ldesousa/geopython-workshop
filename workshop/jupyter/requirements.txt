@@ -5,3 +5,4 @@ folium
 bokeh
 ipyleaflet
 pandas-bokeh
+pygeometa
