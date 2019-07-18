@@ -6,7 +6,7 @@ services:
 
     image: geopython/workshop:latest
 
-    container_name: geopython_ws_jupyter
+    container_name: geopython-workshop-jupyter
 
     ports:
       - "8888:8888"
@@ -15,13 +15,13 @@ services:
       - ./jupyter/content:/jupyter/content:rw
 
   pygeoapi:
-    container_name: geopython_ws_pygeoapi
+    container_name: geopython-workshop-pygeoapi
     image: geopython/pygeoapi:latest
     ports:
       - 5000:80
 
   pycsw:
-    container_name: geopython_ws_pycsw
+    container_name: geopython-workshop-pycsw
     image: geopython/pycsw:latest
     ports:
       - 8001:8000
