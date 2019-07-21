@@ -6,3 +6,4 @@ bokeh
 ipyleaflet
 pandas-bokeh
 pygeometa
+matplotlib
