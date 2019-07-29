@@ -14,15 +14,15 @@ and [Docker Compose](https://docs.docker.com/compose/) on your system
 Docker-Volume-mounted)
 
 ```bash
+git clone https://github.com/geopython/geopython-workshop.git
+cd geopython-workshop
 cd workshop/jupyter
 ./build.sh
-
 ```
 
 ## Running
 
 All services are started using a [Docker Compose file](workshop/docker-compose.yml).
-
 
 ```bash
 cd workshop
@@ -41,7 +41,7 @@ NB Jupyter notebook needs a **token**. The token is displayed on startup:
 `http://127.0.0.1:8888/?token=<longtokenhexstring>`.
 
 As Docker Compose may run in background you can make logging 
-output visible via `docker logs --follow geopython_ws_jupyter` .
+output visible via `docker logs --follow geopython-workshop-jupyter` .
 
 ### Bugs and Issues
 
