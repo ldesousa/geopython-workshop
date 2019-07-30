@@ -8,15 +8,18 @@
 The workshop requires [Docker](https://docker.com) 
 and [Docker Compose](https://docs.docker.com/compose/) on your system
 
-### Building
+### Docker Images
 
-(We should provide the Docker Images on DockerHub and have all content 
-Docker-Volume-mounted)
+The Docker Images for this workshop are [available on DockerHub](https://cloud.docker.com/u/geopython/repository/docker/geopython/geopython-workshop/). 
+The name of the workshop Image is `geopython/geopython-workshop[:latest]`.
+Note that the Docker Images contain mainly all (Python) components/dependencies. The actual workshop content will be
+Docker-Volume-mounted.
+
+You may always build a Docker Image from this repo yourself:
 
 ```bash
-git clone https://github.com/geopython/geopython-workshop.git
-cd geopython-workshop
-cd workshop/jupyter
+git clone https://github.com/geopython/geopython-workshop.git geopython-workshop.git
+cd geopython-workshop.git/workshop/jupyter
 ./build.sh
 ```
 
