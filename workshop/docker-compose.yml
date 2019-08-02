@@ -16,12 +16,20 @@ services:
 
   pygeoapi:
     container_name: geopython-workshop-pygeoapi
+
     image: geopython/pygeoapi:latest
+
     ports:
       - 5000:80
 
+    volumes:
+      - ./pygeoapi/pygeoapi-config.yml:/pygeoapi/local.config.yml
+      - ./pygeoapi/data:/pygeoapi/data
+
   pycsw:
     container_name: geopython-workshop-pycsw
+
     image: geopython/pycsw:latest
+
     ports:
       - 8001:8000
