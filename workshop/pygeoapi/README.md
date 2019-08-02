@@ -1,10 +1,12 @@
 # pygeoapi
 
 * config is mounted into Docker Container
-* data is mounted under /pygeoapi/data
+* [./data](data) is mounted under `/pygeoapi/data` in Docker Container
 * [woudc-stations.geojson](data/woudc-stations.geojson) is served by `pygeoapi`
 
-## Adding Data
+## Publishing Data
+
+This is the example how we added already the Woudc Stations set.
 
 * add your data file to `./data` dir (example here: [woudc-stations](data/woudc-stations.geojson))
 * edit [config yml](pygeoapi-config.yml) *
