@@ -6,6 +6,28 @@ This workshop will provide an introduction to performing common GIS/geospatial t
 
 The workshop is provided using the Jupyter Notebook environment with Python 3.
 
+## Requirements
+
+The workshop uses [Jupyter Notebooks](https://jupyter.org).  Jupyter is
+an interactive development environment suitable for documenting and reproducing
+workflows using live code.
+
+As the installation of all dependencies on all platforms (Windows, Mac, Linux)
+can be quite involved and complex this workshop provides all components 
+within a [Docker](https://docker.org) image.
+
+In addition, geospatial web services like [pygeoapi](https://pygeoapi.io)
+and [pycsw](https://pycsw.org) in this workshop are provided by Docker images.
+
+The core requirement is to have [Docker](https://docker.org) and [Docker Compose](https://docs.docker.com/compose/) installed
+on the system.  Once you have Docker and Docker Compose installed you will be
+able to install the workshop without any other dependencies.
+
+### Optional requirements
+
+Users may optionally install [QGIS](https://qgis.org) as a GIS data viewer. 
+QGIS is a multiplatform open source desktop application for geospatial data.
+
 ## Installation
 
 ```bash
@@ -16,7 +38,18 @@ cd geopython-workshop-master/workshop
 ./geopython-workshop-ctl.sh start
 # check the URL+token
 ./geopython-workshop-ctl.sh url
+
 # open browser to resulting URL+token
+# or if on Linux/MacOS, run:
+# ./geopython-workshop-ctl.sh url | xargs open
+
 # stop workshop
 ./geopython-workshop-ctl.sh stop
 ```
+
+## Support
+
+A [Gitter](https://gitter.im/geopython/geopython-workshop) channel exists for
+discussion and live support from the developers of the workshop.
+
+## Issues
