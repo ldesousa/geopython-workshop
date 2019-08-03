@@ -4,7 +4,7 @@ services:
 
   jupyter:
 
-    image: geopython/workshop:latest
+    image: geopython/geopython-workshop:latest
 
     container_name: geopython-workshop-jupyter
 

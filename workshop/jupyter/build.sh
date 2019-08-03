@@ -1,3 +1,3 @@
 #!/bin/bash
 
-docker build --tag geopython/workshop:latest .
+docker build --tag geopython/geopython-workshop:latest .
