@@ -5,6 +5,7 @@ copyright: Copyright (c) 2019 the Doing Geospatial in Python Team<br/>This websi
 site_url: https://geopython.github.io/geopython-workshop
 repo_url: https://github.com/geopython/geopython-workshop
 docs_dir: docs
+edit_uri: edit/master/web/docs
 
 nav:
     - Home: index.md
