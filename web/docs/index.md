@@ -28,6 +28,26 @@ able to install the workshop without any other dependencies.
 Users may optionally install [QGIS](https://qgis.org) as a GIS data viewer. 
 QGIS is a multiplatform open source desktop application for geospatial data.
 
+## Data
+
+The workshop provides various sample data to illustrate Python geospatial
+functionality which has been tested to cover the workshop requirements.
+
+Having said this, please feel free to bring your own! Examples:
+
+- data: basically anything that can be read with GDAL
+- metadata: ISO, FGDC, Dublin Core or even pygeometa [MCF files](https://github.com/geopython/pygeometa/blob/master/sample.yml)
+
+## Verifying your environment
+
+Ensure Docker is running on your computer, then verify that the `docker`
+and `docker-compose` commands are working and available:
+
+```bash
+docker version
+docker-compose version
+```
+
 ## Installation
 
 ```bash
@@ -52,4 +72,6 @@ cd geopython-workshop-master/workshop
 A [Gitter](https://gitter.im/geopython/geopython-workshop) channel exists for
 discussion and live support from the developers of the workshop.
 
-## Issues
+### Bugs and Issues
+
+All bugs, enhancements and issues can be reported on [GitHub](https://github.com/geopython/geopython-workshop/issues).
