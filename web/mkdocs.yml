@@ -11,3 +11,5 @@ nav:
     - Home: index.md
 
 theme: slate
+
+plugins: []
