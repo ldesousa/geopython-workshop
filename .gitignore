@@ -2,3 +2,6 @@
 web/site
 .ipynb_checkpoints
 *.iml
+
+# data created during workshop
+workshop/jupyter/content/data/woudc-stations.xml
