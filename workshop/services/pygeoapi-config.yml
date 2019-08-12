@@ -526,30 +526,6 @@ datasets:
             id_field: id
             layer: ogrgeojson
 
-    woudc_stations:
-        title: woudc_stations
-        description: woudc_stations
-        keywords:
-            - ozone
-        crs:
-            - CRS84
-        links:
-            - type: text/html
-              rel: canonical
-              title: information
-              href: https://woudc.org
-              hreflang: en-US
-        extents:
-            spatial:
-                bbox: [-180,-90,180,90]
-            temporal:
-                begin: 2011-11-11
-                end: now  # or empty
-        provider:
-            name: GeoJSON
-            data: data/woudc-stations.geojson
-            id_field: gaw_id
-
     ogr_addresses_gpkg:
         title: Dutch addresses (subset Otterlo). OGR GeoPackage Driver
         description: Dutch addresses subset.
@@ -631,6 +607,34 @@ datasets:
 #
 #            id_field: objectid
 
+##############################################################################
+## Section 09 - Publishing
+###############################################################################
+
+#    woudc-stations:
+#        title: WMO WOUDC Stations
+#        description: WMO WOUDC Stations
+#        keywords:
+#            - ozone
+#            - ultraviolet
+#        crs:
+#            - CRS84
+#        links:
+#            - type: text/html
+#              rel: canonical
+#              title: information
+#              href: https://woudc.org
+#              hreflang: en-US
+#        extents:
+#            spatial:
+#                bbox: [-180,-90,180,90]
+#            temporal:
+#                begin: 1962-01-01
+#                end: now  # or empty
+#        provider:
+#            name: GeoJSON
+#            data: /jupyter/content/data/woudc-stations.geojson
+#            id_field: gaw_id
 
 processes:
     hello-world:

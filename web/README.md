@@ -1,6 +1,6 @@
 # Workshop website
 
-This [workshop](https://geopython.github.io/geopython-workshop is powered
+This [workshop](https://geopython.github.io/geopython-workshop) is powered
 by [MkDocs](https://www.mkdocs.org) which facilitates easy management
 of website content and publishing.
 
