@@ -12,7 +12,7 @@ python3 -m venv geopython-workshop
 cd geopython-workshop
 # download the website from GitHub
 git clone https://github.com/geopython/geopython-workshop.git
-cd geopython-workshop
+cd geopython-workshop/web
 # install required dependencies
 pip install -r requirements.txt
 # build the website

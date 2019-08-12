@@ -10,6 +10,6 @@ edit_uri: edit/master/web/docs
 nav:
     - Home: index.md
 
-theme: slate
+theme: spacelab
 
 plugins: []
