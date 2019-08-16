@@ -1,9 +1,11 @@
 Shapely
 OWSLib
 geopandas
+descartes
 folium
 bokeh
 ipyleaflet
 pandas-bokeh
 pygeometa
 matplotlib
+
