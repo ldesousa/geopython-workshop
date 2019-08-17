@@ -67,23 +67,22 @@ cd geopython-workshop-master/workshop
 ./geopython-workshop-ctl.sh stop
 ```
 
-If the above (`bash`) `.sh` scripts don't work for some reason on your system you may try to execute `docker-compose` directly via:
+If the above `.sh` scripts do not work on your system you can execute `docker-compose` directly via:
 
 ```bash
 # in dir geopython-workshop-master/workshop
 docker-compose up -d
 docker logs geopython-workshop-jupyter
 # look for URL+Token and Copy/Paste in browser
-
 ```
 
-Still installation failures or no Docker installed? With some limits you may follow most of the workshop via a remote "Binder" instance, see next.
+## Installation Failures
 
-## Installation Failures!
+Still installation failures or no Docker installed? With some limits you may follow most of the workshop via a remote "Binder" instance.
 
 As a last resort and with some limits (e.g. no local geo-services, no data publication), 
 you may follow most of the workshop using a remote Docker instance within your browser via "Jupyter Binder". Click on the button below
-to launch the Workshop Binder Instance. Be patient for the startup...
+to launch the Workshop Binder Instance. Be patient for the startup.
 
 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/geopython/geopython-workshop/master?filepath=workshop%2Fjupyter%2Fcontent%2Fnotebooks%2F01-introduction.ipynb)
 
