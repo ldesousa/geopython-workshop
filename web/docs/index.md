@@ -14,12 +14,12 @@ workflows using live code.
 
 As the installation of all dependencies on all platforms (Windows, Mac, Linux)
 can be quite involved and complex this workshop provides all components 
-within a [Docker](https://docker.org) image.
+within a [Docker Image](https://cloud.docker.com/u/geopython/repository/docker/geopython/geopython-workshop).
 
 In addition, geospatial web services like [pygeoapi](https://pygeoapi.io)
 and [pycsw](https://pycsw.org) in this workshop are provided by Docker images.
 
-The core requirement is to have [Docker](https://docker.org) and [Docker Compose](https://docs.docker.com/compose/) installed
+The core requirement is to have [Docker](https://docker.com) and [Docker Compose](https://docs.docker.com/compose/) installed
 on the system.  Once you have Docker and Docker Compose installed you will be
 able to install the workshop without any other dependencies.
 
