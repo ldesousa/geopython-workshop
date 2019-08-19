@@ -10,9 +10,9 @@ and [Docker Compose](https://docs.docker.com/compose/) on your system
 
 ### Docker Images
 
-The Docker Images for this workshop are [available on DockerHub](https://cloud.docker.com/u/geopython/repository/docker/geopython/geopython-workshop/). 
+The Docker Images for this workshop are [available on DockerHub](https://hub.docker.com/r/geopython/geopython-workshop). 
 The name of the workshop Image is `geopython/geopython-workshop[:latest]`.
-Note that the Docker Images contain mainly all (Python) components/dependencies. The actual workshop content will be
+Note that the Docker Images contain mainly all (Python) components/dependencies. The actual workshop content (data+notebooks) will be
 Docker-Volume-mounted.
 
 You may always build a Docker Image from this repo yourself:
