@@ -14,7 +14,7 @@ workflows using live code.
 
 As the installation of all dependencies on all platforms (Windows, Mac, Linux)
 can be quite involved and complex this workshop provides all components 
-within a [Docker Image](https://cloud.docker.com/u/geopython/repository/docker/geopython/geopython-workshop).
+within a [Docker Image](https://hub.docker.com/r/geopython/geopython-workshop).
 
 In addition, geospatial web services like [pygeoapi](https://pygeoapi.io)
 and [pycsw](https://pycsw.org) in this workshop are provided by Docker images.
