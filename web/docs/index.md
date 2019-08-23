@@ -76,15 +76,52 @@ docker logs geopython-workshop-jupyter
 # look for URL+Token and Copy/Paste in browser
 ```
 
-## Installation Failures
+## Installation Issues
 
-Still installation failures or no Docker installed? With some limits you may follow most of the workshop via a remote "Binder" instance.
+Docker installed but problems installing/running the workshop? Below some tips:
 
-As a last resort and with some limits (e.g. no local geo-services, no data publication), 
-you may follow most of the workshop using a remote Docker instance within your browser via "Jupyter Binder". Click on the button below
-to launch the Workshop Binder Instance. Be patient for the startup.
+### Download Problems
+
+Although `curl` may be on your system it may have problems with SSL (one user noted using OSGeo4W).
+In that case you can copy/paste the download URL in your browser and download from there.
+
+### File/Drive Sharing
+
+The workshop setup involves Docker Volume Mounting.
+For Mac OS and Windows installs be sure to **enable File/Drive Sharing** for the directory where you unzipped the workshop.
+Go to the `Preferences/Settings | File Sharing...`  menu and make settings accordingly. 
+
+### Running in VirtualBox
+
+You may also run a VirtualBox VM with preferably Ubuntu, install Docker there and run the workshop. Even better if
+you use [Vagrant](https://www.vagrantup.com) to provision/manage your VM. You could even unpack the .zip file
+on your local machine and mount it within the VM, start the workshop there. 
+
+In any case, in order to access the services from your local machine, you need to do port mapping from
+ports within the VM to your local machine in order to access the workshop from your local browser.
+The following ports need to be mapped from the VirtualBox VM to your local system:
+ **8888 (Jupyter)**, **5000 (pygeoapi)** and **8001 (pycsw)**
+
+### Cannot Access URL
+
+The workshop should run on http://127.0.0.1:8888?token=<token> but in some cases this may not work.
+In that case you could also try http://0.0.0.0:8888?token=<token>.
+
+## No Docker Installed?
+
+If you somehow were not able to install Docker: 
+there is a Cloud version of the Jupyter-Notebook-part of the workshop via "Jupyter Binder".
+
+With some limits (e.g. no local geo-services, no data publication), 
+you may follow most of the workshop using a remote Docker instance within your 
+browser via "Jupyter Binder". Click on the button below
+to launch the Workshop Binder Instance. Startup takes a while, be patient...
 
 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/geopython/geopython-workshop/master?filepath=workshop%2Fjupyter%2Fcontent%2Fnotebooks%2F01-introduction.ipynb)
+
+Additional notes for Binder session:
+
+* session timeout is about 10 mins, if that happens, refreshing the page will not help, you need to start a new session using the button above
 
 ## Support
 
