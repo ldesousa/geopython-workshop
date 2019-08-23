@@ -88,7 +88,8 @@ In that case you can copy/paste the download URL in your browser and download fr
 ### File/Drive Sharing
 
 The workshop setup involves Docker Volume Mounting.
-For Mac OS and Windows installs be sure to **enable File/Drive Sharing** for the directory where you unzipped the workshop.
+For Mac OS and Windows installs be sure to **enable File/Drive Sharing** within Docker Desktop 
+for the directory where you unzipped the workshop.
 Go to the `Preferences/Settings | File Sharing...`  menu and make settings accordingly. 
 
 ### Running in VirtualBox
@@ -100,12 +101,23 @@ on your local machine and mount it within the VM, start the workshop there.
 In any case, in order to access the services from your local machine, you need to do port mapping from
 ports within the VM to your local machine in order to access the workshop from your local browser.
 The following ports need to be mapped from the VirtualBox VM to your local system:
- **8888 (Jupyter)**, **5000 (pygeoapi)** and **8001 (pycsw)**
+ **8888 (Jupyter)**, **5000 (pygeoapi)** and **8001 (pycsw)** .
+ 
+You will possibly need to enable firewall access for these ports within your VM. Do this as follows:
+
+```
+sudo ufw allow 8888/tcp
+sudo ufw allow 5000/tcp
+sudo ufw allow 8001/tcp
+``` 
+
+Within VirtualBox menu you can then map these ports to the same ports on your local system, so the workshop
+is accessed with your local browser via http://127.0.0.1:8888?token=..., http://127.0.0.1:5000 etc.
 
 ### Cannot Access URL
 
-The workshop should run on http://127.0.0.1:8888?token=<token> but in some cases this may not work.
-In that case you could also try http://0.0.0.0:8888?token=<token>.
+The workshop should run on http://127.0.0.1:8888?token="token" but in some cases this may not work.
+In that case you could also try http://0.0.0.0:8888?token="token".
 
 ## No Docker Installed?
 
