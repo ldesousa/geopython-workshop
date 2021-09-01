@@ -27,38 +27,36 @@
 #
 # =================================================================
 
-FROM debian:buster-slim
+FROM ubuntu:focal
 
 LABEL maintainer="Just van den Broecke <justb4@gmail.com>"
 
 # ARGS
-ARG TIMEZONE="Europe/London"
-ARG LOCALE="en_US.UTF-8"
+ARG TZ="Etc/UTC"
+ARG LANG="en_US.UTF-8"
 ARG ADD_DEB_PACKAGES=""
 ARG ADD_PIP_PACKAGES=""
 
 # ENV settings
-ENV TZ=${TIMEZONE} \
+ENV TZ=${TZ} \
+	LANG=${LANG} \
 	DEBIAN_FRONTEND="noninteractive" \
-	DEB_BUILD_DEPS="tzdata build-essential python3-setuptools python3-pip apt-utils" \
-	DEB_PACKAGES="locales libgdal20 python3-gdal python3-fiona python3-rasterio python3-pyproj ${ADD_DEB_PACKAGES}" \
-	PIP_PACKAGES="jupyter wheel==0.33.4 ${ADD_PIP_PACKAGES}"
+	DEB_BUILD_DEPS="software-properties-common build-essential python3-setuptools python3-pip apt-utils" \
+	DEB_PACKAGES="locales locales-all python3-gdal python3-fiona python3-rasterio python3-pyproj ${ADD_DEB_PACKAGES}" \
+	PIP_PACKAGES="jupyter wheel ${ADD_PIP_PACKAGES}"
 
 COPY ./requirements.txt /jupyter/requirements.txt
 
 # Run all installs
 RUN \
-	# Install dependencies
-	apt-get update \
-	&& apt-get --no-install-recommends install -y ${DEB_BUILD_DEPS} ${DEB_PACKAGES} \
-	# Timezone
-	&& cp /usr/share/zoneinfo/${TZ} /etc/localtime\
-	&& dpkg-reconfigure tzdata \
-	# Locale
-	&& sed -i -e "s/# ${LOCALE} UTF-8/${LOCALE} UTF-8/" /etc/locale.gen \
-	&& dpkg-reconfigure --frontend=noninteractive locales \
-	&& update-locale LANG=${LOCALE} \
-	&& echo "For ${TZ} date=$(date)" && echo "Locale=$(locale)" \
+    # Install dependencies
+    apt-get update -y \
+    && apt-get upgrade -y \
+    && apt-get install -y --fix-missing --no-install-recommends ${DEB_BUILD_DEPS}  \
+    && add-apt-repository ppa:ubuntugis/ubuntugis-unstable \
+    && apt-get --no-install-recommends install -y ${DEB_PACKAGES} \
+    && update-locale LANG=${LANG} \
+    && echo "For ${TZ} date=$(date)" && echo "Locale=$(locale)" \
 	&& pip3 install ${PIP_PACKAGES} \
 	&& pip3 install -r /jupyter/requirements.txt \
 	&& apt-get remove --purge ${DEB_BUILD_DEPS} -y \
