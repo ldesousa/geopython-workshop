@@ -46,6 +46,9 @@ git push origin master
 
 ## Publishing updates to the live site
 
+Updates are automatically pushed to GitHub Pages.  To publish updates
+manually:
+
 ```bash
 # NOTE: you require access privileges to the GitHub repository
 # to publish live updates
