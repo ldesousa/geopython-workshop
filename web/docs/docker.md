@@ -1,4 +1,4 @@
-# Docker Installation
+# Docker installation
 
 ## Ubuntu
 
@@ -34,5 +34,4 @@ cd ~/geopython-workshop-master/workshop
 ./geopython-workshop-ctl.sh url
 
 # Note the URL with token, copy/paste into browser
-
 ```
