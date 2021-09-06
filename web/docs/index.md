@@ -37,7 +37,7 @@ functionality which has been tested to cover the workshop requirements.
 Having said this, please feel free to bring your own! Examples:
 
 - data: basically anything that can be read with GDAL
-- metadata: ISO, FGDC, Dublin Core or even pygeometa [MCF files](https://github.com/geopython/pygeometa/blob/master/sample.yml)
+- metadata: ISO, FGDC, Dublin Core, OGC API - Records, STAC  or even pygeometa [MCF files](https://github.com/geopython/pygeometa/blob/master/sample.yml)
 
 ## Verifying your environment
 
