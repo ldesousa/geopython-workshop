@@ -26,7 +26,8 @@ able to install the workshop without any other dependencies.
 ### Optional requirements
 
 Users may optionally install [QGIS](https://qgis.org) as a GIS data viewer. 
-QGIS is a multiplatform open source desktop application for geospatial data.
+QGIS is a free and open-source cross-platform desktop geographic information
+system application that supports viewing, editing, and analysis of geospatial data.
 
 ## Data
 
