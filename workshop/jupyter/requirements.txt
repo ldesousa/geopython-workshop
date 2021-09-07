@@ -8,4 +8,3 @@ ipyleaflet
 pandas-bokeh
 pygeometa
 matplotlib
-

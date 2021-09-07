@@ -18,7 +18,7 @@ Docker-Volume-mounted.
 You may always build a Docker Image from this repo yourself:
 
 ```bash
-git clone https://github.com/geopython/geopython-workshop.git geopython-workshop.git
+git clone https://github.com/geopython/geopython-workshop.git
 cd geopython-workshop.git/workshop/jupyter
 ./build.sh
 ```

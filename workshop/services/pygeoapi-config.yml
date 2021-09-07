@@ -83,8 +83,9 @@ metadata:
         instructions: During hours of service.  Off on weekends.
         role: pointOfContact
 
-datasets:
+resources:
     obs:
+        type: collection
         title: Observations
         description: Observations
         keywords:
@@ -109,15 +110,17 @@ datasets:
             temporal:
                 begin: 2000-10-30T18:24:39Z
                 end: 2007-10-30T08:57:29Z
-        provider:
-            name: CSV
-            data: tests/data/obs.csv
-            id_field: id
-            geometry:
-                x_field: long
-                y_field: lat
+        providers:
+            - name: CSV
+              type: feature
+              data: tests/data/obs.csv
+              id_field: id
+              geometry:
+                  x_field: long
+                  y_field: lat
 
 #    ne_110m_populated_places_simple:
+#        type: collection
 #        title: Populated Places
 #        description: Point symbols with name attributes. Includes all admin-0 capitals and some other major cities. We favor regional significance over population census in determining our selection of places. Use the scale rankings to filter the number of towns that appear on your map.
 #        keywords:
@@ -140,12 +143,14 @@ datasets:
 #        extents:
 #            spatial:
 #                bbox: [-180,-90,180,90]
-#        provider:
-#            name: Elasticsearch
-#            data: http://localhost:9200/ne_110m_populated_places_simple/FeatureCollection
-#            id_field: geonameid
+#        providers:
+#            - name: Elasticsearch
+#              type: feature
+#              data: http://localhost:9200/ne_110m_populated_places_simple/FeatureCollection
+#              id_field: geonameid
 #
     lakes:
+        type: collection
         title: Large Lakes
         description: lakes of the world, public domain
         keywords:
@@ -162,14 +167,15 @@ datasets:
             spatial:
                 bbox: [-180,-90,180,90]
             temporal:
-                begin: 2011-11-11
-                end: now  # or empty
-        provider:
-            name: GeoJSON
-            data: tests/data/ne_110m_lakes.geojson
-            id_field: id
+                begin: 2011-11-11T00:00:00Z
+        providers:
+            - name: GeoJSON
+              type: feature
+              data: tests/data/ne_110m_lakes.geojson
+              id_field: id
 
     countries:
+        type: collection
         title: Countries in the world (SpatialLite Provider)
         description: Countries of the world (SpatialLite)
         keywords:
@@ -186,15 +192,14 @@ datasets:
         extents:
             spatial:
                 bbox: [-180,-90,180,90]
-            temporal:
-                begin: None
-                end: now  # or empty
-        provider:
-            name: SQLite
-            data: tests/data/ne_110m_admin_0_countries.sqlite
-            id_field: ogc_fid
-            table: ne_110m_admin_0_countries
+        providers:
+            - name: SQLiteGPKG
+              type: feature
+              data: tests/data/ne_110m_admin_0_countries.sqlite
+              id_field: ogc_fid
+              table: ne_110m_admin_0_countries
 #    poi:
+#        type: collection
 #        title: Portuguese point of interrest
 #        description: Portuguese points of interrest obtained from OpenStreetMap. Dataset includes Madeira and Azores islands
 #        keywords:
@@ -217,16 +222,15 @@ datasets:
 #        extents:
 #            spatial:
 #                bbox: [-31.2687 32.5898 -6.18992 42.152]
-#            temporal:
-#                begin: None
-#                end: now  # or empty
-#        provider:
-#            name: GeoPackage
-#            data: tests/data/poi_portugal.gpkg
-#            id_field: osm_id
-#            table: poi_portugal
+#        providers:
+#            - name: GeoPackage
+#              type: feature
+#              data: tests/data/poi_portugal.gpkg
+#              id_field: osm_id
+#              table: poi_portugal
 
 #    hotosm_bdi_waterways:
+#        type: collection
 #        title: Waterways of Burundi
 #        description: Waterways of Burundi, Africa. Dataset timestamp  1st Sep 2018 - Humanitarian OpenStreetMap Team (HOT)
 #        keywords:
@@ -245,23 +249,22 @@ datasets:
 #              hreflang: en-US
 #        extents:
 #            spatial:
-#                bbox: [28.9845376683957 -4.48174334765485,30.866396969019 -2.3096796]
-#            temporal:
-#                begin: None
-#                end: now  # or empty
-#        provider:
-#            name: PostgreSQL
-#            data:
-#                host: 127.0.0.1
-#                dbname: test
-#                user: postgres
-#                password: postgres
-#                port: 5432
-#                schema: public
-#            id_field: osm_id
-#            table: hotosm_bdi_waterways
+#                bbox: [28.9845376683957,-4.48174334765485,30.866396969019,-2.3096796]
+#        providers:
+#            - name: PostgreSQL
+#              type: feature
+#              data:
+#                  host: 127.0.0.1
+#                  dbname: test
+#                  user: postgres
+#                  password: postgres
+#                  port: 5432
+#                  schema: public
+#              id_field: osm_id
+#              table: hotosm_bdi_waterways
 
     dutch_georef_stations:
+        type: collection
         title: Dutch Georef Stations via OGR WFS
         description: Locations of RD/GNSS-reference stations from Dutch Kadaster PDOK a.k.a RDInfo. Uses MapServer WFS v2 backend via OGRProvider.
         keywords:
@@ -281,34 +284,33 @@ datasets:
         extents:
             spatial:
                 bbox: [50.7539, 7.21097, 53.4658, 3.37087]
-            temporal:
-                begin: None
-                end: now  # or empty
-        provider:
-            name: OGR
-            data:
-                source_type: WFS
-                source: WFS:http://geodata.nationaalgeoregister.nl/rdinfo/wfs?
-                source_srs: EPSG:28992
-                target_srs: EPSG:4326
-                source_capabilities:
-                    paging: True
+        providers:
+            - name: OGR
+              type: feature
+              data:
+                  source_type: WFS
+                  source: WFS:http://geodata.nationaalgeoregister.nl/rdinfo/wfs?
+                  source_srs: EPSG:28992
+                  target_srs: EPSG:4326
+                  source_capabilities:
+                      paging: True
 
-                source_options:
-#                    OGR_WFS_VERSION: 1.1.0
-                    OGR_WFS_LOAD_MULTIPLE_LAYER_DEFN: NO
+                  source_options:
+                      # OGR_WFS_VERSION: 1.1.0
+                      OGR_WFS_LOAD_MULTIPLE_LAYER_DEFN: NO
 
-                gdal_ogr_options:
-                    EMPTY_AS_NULL: NO
-                    GDAL_CACHEMAX: 64
-                    # GDAL_HTTP_PROXY: (optional proxy)
-                    # GDAL_PROXY_AUTH: (optional auth for remote WFS)
-                    CPL_DEBUG: NO
+                  gdal_ogr_options:
+                      EMPTY_AS_NULL: NO
+                      GDAL_CACHEMAX: 64
+                      # GDAL_HTTP_PROXY: (optional proxy)
+                      # GDAL_PROXY_AUTH: (optional auth for remote WFS)
+                      CPL_DEBUG: NO
 
-            id_field: gml_id
-            layer: rdinfo:stations
+              id_field: gml_id
+              layer: rdinfo:stations
 
     utah_city_locations:
+        type: collection
         title: Cities in Utah via OGR WFS
         description: Data from the state of Utah. Standard demo dataset from the deegree WFS server that is used as backend WFS.
         keywords:
@@ -327,34 +329,33 @@ datasets:
         extents:
             spatial:
                 bbox: [-112.108489, 39.854053, -111.028628, 40.460098]
-            temporal:
-                begin: None
-                end: now  # or empty
-        provider:
-            name: OGR
-            data:
-                source_type: WFS
-                source: WFS:http://demo.deegree.org/utah-workspace/services/wfs?TYPENAME=app:SGID93_LOCATION_UDOTMap_CityLocations
-                source_srs: EPSG:26912
-                target_srs: EPSG:4326
-                source_capabilities:
-                    paging: True
+        providers:
+            - name: OGR
+              type: feature
+              data:
+                  source_type: WFS
+                  source: WFS:http://demo.deegree.org/utah-workspace/services/wfs?TYPENAME=app:SGID93_LOCATION_UDOTMap_CityLocations
+                  source_srs: EPSG:26912
+                  target_srs: EPSG:4326
+                  source_capabilities:
+                      paging: True
 
-                source_options:
-#                    OGR_WFS_VERSION: 2.0.0
-                    OGR_WFS_LOAD_MULTIPLE_LAYER_DEFN: NO
+                  source_options:
+                    # OGR_WFS_VERSION: 2.0.0
+                      OGR_WFS_LOAD_MULTIPLE_LAYER_DEFN: NO
 
-                gdal_ogr_options:
-                    EMPTY_AS_NULL: NO
-                    GDAL_CACHEMAX: 64
-                    # GDAL_HTTP_PROXY: (optional proxy)
-                    # GDAL_PROXY_AUTH: (optional auth for remote WFS)
-                    CPL_DEBUG: NO
+                  gdal_ogr_options:
+                      EMPTY_AS_NULL: NO
+                      GDAL_CACHEMAX: 64
+                      # GDAL_HTTP_PROXY: (optional proxy)
+                      # GDAL_PROXY_AUTH: (optional auth for remote WFS)
+                      CPL_DEBUG: NO
 
-            id_field: NAME
-            layer: app:SGID93_LOCATION_UDOTMap_CityLocations
+              id_field: NAME
+              layer: app:SGID93_LOCATION_UDOTMap_CityLocations
 
     unesco_pois_italy:
+        type: collection
         title: Unesco POIs in Italy via OGR WFS
         description: Unesco Points of Interest in Italy. Using GeoSolutions GeoServer WFS demo-server as backend WFS.
         keywords:
@@ -372,34 +373,33 @@ datasets:
         extents:
             spatial:
                 bbox: [36.0, 17.0, 46.0, 18.0]
-            temporal:
-                begin: None
-                end: now  # or empty
-        provider:
-            name: OGR
-            data:
-                source_type: WFS
-                source: WFS:https://demo.geo-solutions.it/geoserver/wfs
-                source_srs: EPSG:32632
-                target_srs: EPSG:4326
-                source_capabilities:
-                    paging: True
+        providers:
+            - name: OGR
+              type: feature
+              data:
+                  source_type: WFS
+                  source: WFS:https://demo.geo-solutions.it/geoserver/wfs
+                  source_srs: EPSG:32632
+                  target_srs: EPSG:4326
+                  source_capabilities:
+                      paging: True
 
-                source_options:
-#                    OGR_WFS_VERSION: 1.1.0
-                    OGR_WFS_LOAD_MULTIPLE_LAYER_DEFN: NO
+                  source_options:
+                      # OGR_WFS_VERSION: 1.1.0
+                      OGR_WFS_LOAD_MULTIPLE_LAYER_DEFN: NO
 
-                gdal_ogr_options:
-                    EMPTY_AS_NULL: NO
-                    GDAL_CACHEMAX: 64
-                    # GDAL_HTTP_PROXY: (optional proxy)
-                    # GDAL_PROXY_AUTH: (optional auth for remote WFS)
-                    CPL_DEBUG: NO
+                  gdal_ogr_options:
+                      EMPTY_AS_NULL: NO
+                      GDAL_CACHEMAX: 64
+                      # GDAL_HTTP_PROXY: (optional proxy)
+                      # GDAL_PROXY_AUTH: (optional auth for remote WFS)
+                      CPL_DEBUG: NO
 
-            id_field: gml_id
-            layer: unesco:Unesco_point
+              id_field: gml_id
+              layer: unesco:Unesco_point
 
     ogr_gpkg_poi:
+        type: collection
         title: Portuguese Points of Interest via OGR GPKG
         description: Portuguese Points of Interest obtained from OpenStreetMap. Dataset includes Madeira and Azores islands. Uses GeoPackage backend via OGR provider.
         keywords:
@@ -421,31 +421,30 @@ datasets:
               hreflang: en-US
         extents:
             spatial:
-                bbox: [-31.2687 32.5898 -6.18992 42.152]
-            temporal:
-                begin: None
-                end: now  # or empty
-        provider:
-            name: OGR
-            data:
-                source_type: GPKG
-                source: tests/data/poi_portugal.gpkg
-                source_srs: EPSG:4326
-                target_srs: EPSG:4326
-                source_capabilities:
-                    paging: True
+                bbox: [-31.2687,32.5898,-6.18992,42.152]
+        providers:
+            - name: OGR
+              type: feature
+              data:
+                  source_type: GPKG
+                  source: tests/data/poi_portugal.gpkg
+                  source_srs: EPSG:4326
+                  target_srs: EPSG:4326
+                  source_capabilities:
+                      paging: True
 
-                gdal_ogr_options:
-                    EMPTY_AS_NULL: NO
-                    GDAL_CACHEMAX: 64
-                    # GDAL_HTTP_PROXY: (optional proxy)
-                    # GDAL_PROXY_AUTH: (optional auth for remote WFS)
-                    CPL_DEBUG: NO
+                  gdal_ogr_options:
+                      EMPTY_AS_NULL: NO
+                      GDAL_CACHEMAX: 64
+                      # GDAL_HTTP_PROXY: (optional proxy)
+                      # GDAL_PROXY_AUTH: (optional auth for remote WFS)
+                      CPL_DEBUG: NO
 
-            id_field: osm_id
-            layer: poi_portugal
+              id_field: osm_id
+              layer: poi_portugal
 
     ogr_geojson_lakes:
+        type: collection
         title: Large Lakes OGR GeoJSON Driver
         description: lakes of the world, public domain
         keywords:
@@ -461,30 +460,29 @@ datasets:
         extents:
             spatial:
                 bbox: [-180,-90,180,90]
-            temporal:
-                begin: 2011-11-11
-                end: now  # or empty
-        provider:
-            name: OGR
-            data:
-                source_type: GeoJSON
-                source: tests/data/ne_110m_lakes.geojson
-                source_srs: EPSG:4326
-                target_srs: EPSG:4326
-                source_capabilities:
-                    paging: True
+        providers:
+            - name: OGR
+              type: feature
+              data:
+                  source_type: GeoJSON
+                  source: tests/data/ne_110m_lakes.geojson
+                  source_srs: EPSG:4326
+                  target_srs: EPSG:4326
+                  source_capabilities:
+                      paging: True
 
-                gdal_ogr_options:
-                    EMPTY_AS_NULL: NO
-                    GDAL_CACHEMAX: 64
-                    # GDAL_HTTP_PROXY: (optional proxy)
-                    # GDAL_PROXY_AUTH: (optional auth for remote WFS)
-                    CPL_DEBUG: NO
+                  gdal_ogr_options:
+                      EMPTY_AS_NULL: NO
+                      GDAL_CACHEMAX: 64
+                      # GDAL_HTTP_PROXY: (optional proxy)
+                      # GDAL_PROXY_AUTH: (optional auth for remote WFS)
+                      CPL_DEBUG: NO
 
-            id_field: id
-            layer: ne_110m_lakes
+              id_field: id
+              layer: ne_110m_lakes
 
     ogr_addresses_sqlite:
+        type: collection
         title: Dutch addresses (subset Otterlo). OGR SQLite Driver
         description: Dutch addresses subset.
         keywords:
@@ -502,31 +500,30 @@ datasets:
         extents:
             spatial:
                 bbox: [50.7539, 7.21097, 53.4658, 3.37087]
-            temporal:
-                begin: None
-                end: now  # or empty
-        provider:
-            name: OGR
-            data:
-                source_type: SQLite
-                # source: tests/data/ne_110m_admin_0_countries.sqlite
-                source: tests/data/dutch_addresses_4326.sqlite
-                source_srs: EPSG:4326
-                target_srs: EPSG:4326
-                source_capabilities:
-                    paging: True
+        providers:
+            - name: OGR
+              type: feature
+              data:
+                  source_type: SQLite
+                  # source: tests/data/ne_110m_admin_0_countries.sqlite
+                  source: tests/data/dutch_addresses_4326.sqlite
+                  source_srs: EPSG:4326
+                  target_srs: EPSG:4326
+                  source_capabilities:
+                      paging: True
 
-                gdal_ogr_options:
-                    EMPTY_AS_NULL: NO
-                    GDAL_CACHEMAX: 64
-                    # GDAL_HTTP_PROXY: (optional proxy)
-                    # GDAL_PROXY_AUTH: (optional auth for remote WFS)
-                    CPL_DEBUG: NO
+                  gdal_ogr_options:
+                      EMPTY_AS_NULL: NO
+                      GDAL_CACHEMAX: 64
+                      # GDAL_HTTP_PROXY: (optional proxy)
+                      # GDAL_PROXY_AUTH: (optional auth for remote WFS)
+                      CPL_DEBUG: NO
 
-            id_field: id
-            layer: ogrgeojson
+              id_field: id
+              layer: ogrgeojson
 
     ogr_addresses_gpkg:
+        type: collection
         title: Dutch addresses (subset Otterlo). OGR GeoPackage Driver
         description: Dutch addresses subset.
         keywords:
@@ -544,31 +541,30 @@ datasets:
         extents:
             spatial:
                 bbox: [50.7539, 7.21097, 53.4658, 3.37087]
-            temporal:
-                begin: None
-                end: now  # or empty
-        provider:
-            name: OGR
-            data:
-                source_type: GPKG
-                source: tests/data/dutch_addresses_4326.gpkg
-                source_srs: EPSG:4326
-                target_srs: EPSG:4326
-                source_capabilities:
-                    paging: True
+        providers:
+            - name: OGR
+              type: feature
+              data:
+                  source_type: GPKG
+                  source: tests/data/dutch_addresses_4326.gpkg
+                  source_srs: EPSG:4326
+                  target_srs: EPSG:4326
+                  source_capabilities:
+                      - paging: True
 
-                gdal_ogr_options:
-                    EMPTY_AS_NULL: NO
-                    GDAL_CACHEMAX: 64
-                    # GDAL_HTTP_PROXY: (optional proxy)
-                    # GDAL_PROXY_AUTH: (optional auth for remote WFS)
-                    CPL_DEBUG: NO
+                  gdal_ogr_options:
+                      EMPTY_AS_NULL: NO
+                      GDAL_CACHEMAX: 64
+                      # GDAL_HTTP_PROXY: (optional proxy)
+                      # GDAL_PROXY_AUTH: (optional auth for remote WFS)
+                      CPL_DEBUG: NO
 
-            id_field: id
-            layer: OGRGeoJSON
+              id_field: id
+              layer: OGRGeoJSON
 
 # NEEDS GDAL >= 2.3 !
 #    sf_311incidents:
+#        type: collection
 #        title: SF 311Incidents via OGR ESRI Feature Server
 #        description: OGR Provider - ESRI Feature Server - SF 311Incidents
 #        keywords:
@@ -585,33 +581,32 @@ datasets:
 #        extents:
 #            spatial:
 #                bbox: [-180, -90, 180, 90]
-#            temporal:
-#                begin: None
-#                end: now  # or empty
-#        provider:
-#            name: OGR
-#            data:
-#                source_type: ESRIJSON
-#                source: ESRIJSON:http://sampleserver3.arcgisonline.com/ArcGIS/rest/services/SanFrancisco/311Incidents/FeatureServer/0/query?where=objectid+%3D+objectid&outfields=*&f=json
-#                source_srs: EPSG:4326
-#                target_srs: EPSG:4326
-#                source_capabilities:
-#                    paging: True
+#        providers:
+#            - name: OGR
+#              type: feature
+#              data:
+#                  source_type: ESRIJSON
+#                  source: ESRIJSON:http://sampleserver3.arcgisonline.com/ArcGIS/rest/services/SanFrancisco/311Incidents/FeatureServer/0/query?where=objectid+%3D+objectid&outfields=*&f=json
+#                  source_srs: EPSG:4326
+#                  target_srs: EPSG:4326
+#                  source_capabilities:
+#                      paging: True
 #
-#                gdal_ogr_options:
-#                    EMPTY_AS_NULL: NO
-#                    GDAL_CACHEMAX: 64
-#                    # GDAL_HTTP_PROXY: (optional proxy)
-#                    # GDAL_PROXY_AUTH: (optional auth for remote WFS)
-#                    CPL_DEBUG: NO
+#                  gdal_ogr_options:
+#                      EMPTY_AS_NULL: NO
+#                      GDAL_CACHEMAX: 64
+#                      # GDAL_HTTP_PROXY: (optional proxy)
+#                      # GDAL_PROXY_AUTH: (optional auth for remote WFS)
+#                      CPL_DEBUG: NO
 #
-#            id_field: objectid
+#              id_field: objectid
 
 ##############################################################################
 ## Section 09 - Publishing
 ###############################################################################
 
 #    woudc-stations:
+#        type: collection
 #        title: WMO WOUDC Stations
 #        description: WMO WOUDC Stations
 #        keywords:
@@ -629,14 +624,14 @@ datasets:
 #            spatial:
 #                bbox: [-180,-90,180,90]
 #            temporal:
-#                begin: 1962-01-01
-#                end: now  # or empty
-#        provider:
-#            name: GeoJSON
-#            data: /jupyter/content/data/woudc-stations.geojson
-#            id_field: gaw_id
+#                begin: 1962-01-01T00:00:00Z
+#        providers:
+#            - name: GeoJSON
+#              type: feature
+#              data: /jupyter/content/data/woudc-stations.geojson
+#              id_field: gaw_id
 
-processes:
     hello-world:
+        type: process
         processor:
             name: HelloWorld
