@@ -32,6 +32,4 @@ sudo docker run hello-world
 cd ~/geopython-workshop-master/workshop
 ./geopython-workshop-ctl.sh start
 ./geopython-workshop-ctl.sh url
-
-# Note the URL with token, copy/paste into browser
 ```
