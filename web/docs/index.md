@@ -57,12 +57,9 @@ unzip master
 cd geopython-workshop-master/workshop
 # start the workshop
 ./geopython-workshop-ctl.sh start
-# check the URL+token
-./geopython-workshop-ctl.sh url
 
-# open browser to resulting URL+token
-# or if on Linux/MacOS, run:
-# ./geopython-workshop-ctl.sh url | xargs open
+# display URL and open in default web browser
+./geopython-workshop-ctl.sh url
 
 # stop workshop
 ./geopython-workshop-ctl.sh stop
