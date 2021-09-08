@@ -16,7 +16,9 @@ elif [ $1 == "stop" ]; then
     docker-compose stop
     docker-compose rm --force
 elif [ $1 == "url" ]; then
-    docker logs geopython-workshop-jupyter 2>&1 | grep "    or http" | sed 's/or //'
+    url=`docker logs geopython-workshop-jupyter 2>&1 | grep "    or http" | sed 's/or //' | xargs`
+    echo $url
+    open $url
 elif [ $1 == "clean" ]; then
     # Remove all exited containers
     for c in $(docker ps -a -f status=exited -q)
