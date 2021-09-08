@@ -16,7 +16,18 @@ elif [ $1 == "stop" ]; then
     docker-compose stop
     docker-compose rm --force
 elif [ $1 == "url" ]; then
-    url=`docker logs geopython-workshop-jupyter 2>&1 | grep "    or http" | sed 's/or //' | xargs`
+    case "$OSTYPE" in
+        cygwin*)
+            alias open="cmd /c start"
+            ;;
+        linux*)
+            alias open="xdg-open"
+            ;;
+        darwin*)
+            alias start="open"
+            ;;
+    esac
+    url=$(docker logs geopython-workshop-jupyter 2>&1 | grep "    or http" | sed 's/or //')
     echo $url
     open $url
 elif [ $1 == "clean" ]; then
