@@ -11,13 +11,19 @@ on:
     branches:
       - master
     paths:
-      - 'workshop/jupyter/**'
-      - '.github/workflows/docker.yml'
+      # NB currently the Notebooks are not in Docker Image!
+      - workshop/jupyter/Dockerfile
+      - workshop/jupyter/entrypoint.sh
+      - workshop/jupyter/requirements.txt
+      - .github/workflows/docker.yml
 
   pull_request:
     paths:
-      - 'workshop/jupyter/**'
-      - '.github/workflows/docker.yml'
+      # NB currently the Notebooks are not in Docker Image!
+      - workshop/jupyter/Dockerfile
+      - workshop/jupyter/entrypoint.sh
+      - workshop/jupyter/requirements.txt
+      - .github/workflows/docker.yml
 
 jobs:
   # Single job to build Docker Image and push (master-branch only) to DockerHub
