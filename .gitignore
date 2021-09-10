@@ -3,5 +3,10 @@ web/site
 .ipynb_checkpoints
 *.iml
 
+# SQLite/GPKG temp files
+*.gpkg-shm
+*.gpkg-wal
+
 # data created during workshop
 workshop/jupyter/content/data/woudc-stations.xml
+workshop/jupyter/content/data/srtm/srtm_high_pass.geotiff

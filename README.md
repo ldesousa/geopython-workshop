@@ -29,10 +29,11 @@ All services are started using a [Docker Compose file](workshop/docker-compose.y
 
 ```bash
 cd workshop
+# start workshop
 ./geopython-workshop-ctl.sh start
+# display URL and open in default web browser
 ./geopython-workshop-ctl.sh url
 
-# Browse to the resulting URL of running geopython-workshop-ctl.sh url for workshop Jupyter Notebooks
 # Browse to http://127.0.01:5000 for workshop pygeoapi service
 # Browse to http://127.0.01:8001 for workshop pycsw service
 # NB Possibly best if we add a frontend or use docs ("home") as entrypoint

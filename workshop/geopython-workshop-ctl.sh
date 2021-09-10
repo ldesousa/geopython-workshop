@@ -16,7 +16,34 @@ elif [ $1 == "stop" ]; then
     docker-compose stop
     docker-compose rm --force
 elif [ $1 == "url" ]; then
-    docker logs geopython-workshop-jupyter 2>&1 | grep "    or http" | sed 's/or //'
+    # try to open the Jupyter Notebook in Browser
+    platform="$(uname | tr '[:upper:]' '[:lower:]')"
+
+    if [[ $platform == 'linux' ]]; then
+       openapp="xdg-open"
+    elif [[ $platform == 'darwin' ]]; then  # MacOS
+       openapp="open"
+    else  # assume some kind of Windows variant
+      openapp="cmd /c start"
+    fi
+
+    url=$(docker logs geopython-workshop-jupyter 2>&1 | grep "    or http" | sed 's/     or //')
+    if [ -z ${url} ]; then
+        echo "workshop not started"
+        echo "did you start the workshop? (i.e. $0 start)"
+        exit 2
+    fi
+    echo "Attempting to open ${url} in your browser on platform ${platform}..."
+    echo "If this fails, simply copy/paste that URL in your browser"
+    ${openapp} ${url}
+elif [ $1 == "update" ]; then
+    docker pull geopython/geopython-workshop:latest
+    docker pull geopython/pygeoapi:latest
+    docker pull geopython/pycsw:latest
+    echo
+    echo
+    echo "workshop is running the latest Docker images"
+    echo "If updates occured, then stop/start the workshop"
 elif [ $1 == "clean" ]; then
     # Remove all exited containers
     for c in $(docker ps -a -f status=exited -q)

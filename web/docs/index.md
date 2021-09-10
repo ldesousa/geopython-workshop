@@ -2,7 +2,7 @@
 
 With a low barrier to entry and large ecosystem of tools and libraries, Python is the lingua franca for geospatial. Whether you are doing data acquisition, processing, publishing, integration, analysis or software development, there is no shortage of solid Python tools to assist you in your daily workflows.
 
-This workshop will provide an introduction to performing common GIS/geospatial tasks using Python geospatial tools such as OWSLib, Shapely, Fiona/Rasterio, and common geospatial libraries like GDAL, PROJ, pycsw, as well as other tools from the geopython toolchain. Manipulate vector/raster data using Shapely, Fiona and Rasterio. Publish data and metadata to OGC APIs using pygeoapi, pygeometa, pycsw, and more. Visualize your data on a map using Jupyter and Folium. Plus a few extras in between!
+This workshop will provide an introduction to performing common GIS/geospatial tasks using Python geospatial tools such as OWSLib, Shapely, Fiona/Rasterio, and common geospatial libraries like GDAL, PROJ, pycsw, as well as other tools from the geopython toolchain. Manipulate vector/raster data using Shapely, Fiona and Rasterio. Publish data and metadata to OGC APIs using pygeoapi, pygeometa, pycsw, and more. Visualize your data on a map using Folium, Bokeh and more. Plus a few extras in between!
 
 The workshop is provided using the Jupyter Notebook environment with Python 3.
 
@@ -57,12 +57,9 @@ unzip master
 cd geopython-workshop-master/workshop
 # start the workshop
 ./geopython-workshop-ctl.sh start
-# check the URL+token
-./geopython-workshop-ctl.sh url
 
-# open browser to resulting URL+token
-# or if on Linux/MacOS, run:
-# ./geopython-workshop-ctl.sh url | xargs open
+# display URL and open in default web browser
+./geopython-workshop-ctl.sh url
 
 # stop workshop
 ./geopython-workshop-ctl.sh stop
