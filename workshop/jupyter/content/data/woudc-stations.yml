@@ -12,14 +12,16 @@ metadata:
 spatial:
     datatype: vector
     geomtype: point
-    crs: 4326
-    bbox: -180,-90,180,90
 
 identification:
     language: en
     charset: utf8
     title: WOUDC Stations
     abstract: WMO WOUDC Ozone and UV monitoring stations
+    extents:
+        spatial:
+            - bbox: [-180,-90,180,90]
+              crs: 4326
     dates:
         creation: 1962-01-01
         publication: 1962-01-01
@@ -41,15 +43,15 @@ contact:
         url: https://woudc.org
         individualname: Data Centre Manager
         positionname: Data Centre Manager
-        phone: null
-        fax: null
+        phone: nil
+        fax: nil
         address: 4905 Dufferin Street
         city: Toronto
         administrativearea: Ontario
         postalcode: M3H 5T4
         country: Canada
         email: ec.woudc.ec@canada.ca
-        hoursofservice: null
+        hoursofservice: nil
         contactinstructions: email
 
     distribution: *contact_main

@@ -12,14 +12,16 @@ metadata:
 spatial:
     datatype: vector
     geomtype: point
-    crs: 4326
-    bbox: -180,-90,180,90
 
 identification:
     language: en
     charset: utf8
     title: Admin 0 - Countries
     abstract: Countries distinguish between metropolitan (homeland) and independent and semi-independent portions of sovereign states. If you want to see the dependent overseas regions broken out (like in ISO codes, see France for example), use map units instead.  Each country is coded with a world region that roughly follows the United Nations setup.  Includes some thematic data from the United Nations, U.S. Central Intelligence Agency, and elsewhere.
+    extents:
+        spatial:
+            - bbox: [-180,-90,180,90]
+              crs: 4326
     dates:
         creation: 2009-12-02
         publication: 2009-12-02
@@ -41,15 +43,15 @@ contact:
         url: https://www.naturalearthdata.com
         individualname: Nathaniel Vaughn KELSO
         positionname: Project Manager
-        phone: null
-        fax: null
-        address: null
-        city: null
-        administrativearea: null
-        postalcode: null
-        country: null
+        phone: nil
+        fax: nil
+        address: nil
+        city: nil
+        administrativearea: nil
+        postalcode: nil
+        country: nil
         email: nathaniel@naturalearthdata.com 
-        hoursofservice: null
+        hoursofservice: nil
         contactinstructions: email
 
     distribution: *contact_main
