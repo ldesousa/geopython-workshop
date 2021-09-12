@@ -61,7 +61,9 @@ RUN \
 	&& apt autoremove -y  \
 	&& rm -rf /var/lib/apt/lists/* \
 	&& pip3 install ${PIP_PACKAGES} \
-	&& pip3 install -r /jupyter/requirements.txt
+	&& pip3 install -r /jupyter/requirements.txt \
+	# Patch for now until https://github.com/jupyter-widgets/ipyleaflet/issues/865 solved in version
+	&& sed -i /usr/local/lib/python3.8/dist-packages/ipyleaflet/basemaps.py -e 's/com\/\/tiles/com\/tiles/g'
 
 COPY ./entrypoint.sh /jupyter/start.sh
 
