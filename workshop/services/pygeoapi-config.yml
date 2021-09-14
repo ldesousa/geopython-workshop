@@ -631,6 +631,34 @@ resources:
 #              data: /jupyter/content/data/woudc-stations.geojson
 #              id_field: gaw_id
 
+
+#    srtm:
+#        type: collection
+#        title: Shuttle Radar Topography Mission (SRTM) sample
+#        description: Shuttle Radar Topography Mission (SRTM) sample
+#        keywords:
+#            - SRTM
+#            - Shuttle Radar Topography Mission
+#        extents:
+#            spatial:
+#                bbox: [-180,-90,180,90]
+#                crs: http://www.opengis.net/def/crs/OGC/1.3/CRS84
+#        links:
+#            - type: text/html
+#              rel: canonical
+#              title: information
+#              href: https://www2.jpl.nasa.gov/srtm
+#              hreflang: en-US
+#        providers:
+#            - type: coverage
+#              name: rasterio
+#              data: /jupyter/content/data/srtm/srtm.geotiff
+#              options:
+#                  COMPRESS: JPEG
+#              format:
+#                  name: GTiff
+#                  mimetype: image/tiff
+
     hello-world:
         type: process
         processor:
