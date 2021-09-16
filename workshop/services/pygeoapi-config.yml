@@ -550,7 +550,7 @@ resources:
                   source_srs: EPSG:4326
                   target_srs: EPSG:4326
                   source_capabilities:
-                      - paging: True
+                      paging: True
 
                   gdal_ogr_options:
                       EMPTY_AS_NULL: NO
