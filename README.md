@@ -25,7 +25,7 @@ cd geopython-workshop.git/workshop/jupyter
 
 ## Running
 
-All services are started using a [Docker Compose file](workshop/docker-compose.yml).
+All services are started using a [Docker Compose file](https://github.com/geopython/geopython-workshop/blob/master/workshop/docker-compose.yml).
 
 ```bash
 cd workshop
