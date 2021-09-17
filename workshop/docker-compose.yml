@@ -26,10 +26,3 @@ services:
     volumes:
       - ./jupyter/content/data:/jupyter/content/data:ro
       - ./services/pycsw-config.cfg:/etc/pycsw/pycsw.cfg:ro
-
-networks:
-  default:
-    driver: bridge
-    ipam:
-      config:
-        - subnet: 172.16.57.0/24
