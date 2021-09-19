@@ -6,5 +6,5 @@ folium
 bokeh
 ipyleaflet
 pandas-bokeh
-pygeometa
+pygeometa>0.7
 matplotlib
