@@ -6,6 +6,7 @@ There are various install guides for Docker on Ubuntu 20+
 See for example:
 
 * https://linuxhint.com/install_configure_docker_ubuntu/
+* https://gdsl-ul.github.io/soft_install
 
 This comes down to:
 

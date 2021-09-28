@@ -23,6 +23,8 @@ The core requirement is to have [Docker](https://docker.com) and [Docker Compose
 on the system.  Once you have Docker and Docker Compose installed you will be
 able to install the workshop without any other dependencies.
 
+More information on installing Docker can also be found [here](./docker).
+
 ### Optional requirements
 
 Users may optionally install [QGIS](https://qgis.org) as a GIS data viewer. 
