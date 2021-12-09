@@ -38,7 +38,7 @@ identification:
     maintenancefrequency: continual
 
 contact:
-    main: &contact_main
+    pointOfContact: &contact_poc
         organization: Natural Earth
         url: https://www.naturalearthdata.com
         individualname: Nathaniel Vaughn KELSO
@@ -54,7 +54,7 @@ contact:
         hoursofservice: nil
         contactinstructions: email
 
-    distribution: *contact_main
+    distributor: *contact_poc
 
 distribution:
     waf:
