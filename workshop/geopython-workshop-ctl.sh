@@ -1,5 +1,7 @@
 #!/bin/bash
 
+shopt -s expand_aliases
+
 PROGRAM_NAME=$(basename $0)
 
 USAGE="Usage: $PROGRAM_NAME <start|stop|url|update|clean>"
