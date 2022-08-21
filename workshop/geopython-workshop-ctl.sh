@@ -51,7 +51,7 @@ elif [ $1 == "url" ]; then
     url=$(docker logs geopython-workshop-jupyter 2>&1 | grep "    or http" | sed 's/     or //')
     if [ -z ${url} ]; then
         echo "workshop not started"
-        echo "did you start the workshop? (i.e. $0 start)"
+        echo "did you start the workshop? (i.e. bash $0 start)"
         exit 2
     fi
     echo "Attempting to open ${url} in your browser on platform ${platform}..."
