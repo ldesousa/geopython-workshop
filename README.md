@@ -37,8 +37,6 @@ cd workshop
 # display URL and open in default web browser, if a browser does not open, then copy the url from the command output to your browser.
 ./geopython-workshop-ctl.sh url
 
-# Browse to http://127.0.01:5000 for workshop pygeoapi service
-# Browse to http://127.0.01:8001 for workshop pycsw service
 # NB Possibly best if we add a frontend or use docs ("home") as entrypoint
 ./geopython-workshop-ctl.sh stop
 ```
@@ -53,8 +51,9 @@ in Docker Desktop UI, select the jupyter container to see its logs.
 
 ### Notes
 
-- There is an issue with MacOS Monterey where the port 5000 is already used and therefore conflicting with that one used by pygeoapi. If you are facing this error `OSError: [Errno 48] Address already in use` then your machine is affected. To overcome the issue you can disable the *Airplay Receiver* from `System Preferences->Sharing` of your MacOS (detailed description in this blog [post](https://progressstory.com/tech/port-5000-already-in-use-macos-monterey-issue/)).
 - Docker must be managed by non-root users in linux. Please make sure to perform the following [post-installation step](https://docs.docker.com/engine/install/linux-postinstall/#manage-docker-as-a-non-root-user).
+- by default the web services pygeoapi and pycsw are not required for the regular workshop like FOSS4G
+- if you use pygeoapi: there is an issue with MacOS Monterey where the port 5000 is already used and therefore conflicting with that one used by pygeoapi. If you are facing this error `OSError: [Errno 48] Address already in use` then your machine is affected. To overcome the issue you can disable the *Airplay Receiver* from `System Preferences->Sharing` of your MacOS (detailed description in this blog [post](https://progressstory.com/tech/port-5000-already-in-use-macos-monterey-issue/)).
 
 ### Bugs and Issues
 

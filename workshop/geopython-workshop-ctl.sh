@@ -59,8 +59,6 @@ elif [ $1 == "url" ]; then
     ${openapp} ${url}
 elif [ $1 == "update" ]; then
     docker pull geopython/geopython-workshop:latest
-    docker pull geopython/pygeoapi:latest
-    docker pull geopython/pycsw:latest
     echo
     echo
     echo "workshop is running the latest Docker images"
