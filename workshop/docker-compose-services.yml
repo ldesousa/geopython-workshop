@@ -1,8 +1,12 @@
 version: "3"
 
 # Optional services - not for regular workshop like FOSS4G.
-# start in background: docker-compose -f docker-compose-services.yml up -d
+# start: docker-compose -f docker-compose-services.yml up -d
 # stop:                docker-compose -f docker-compose-services.yml stop
+# (or 'docker compose', space for dash, if your DOcker version mandates).
+#
+# The Docker Network workshop_default is provided by and shared with
+# Workshop Jupyter notebook run from docker-compose.yml for remote API access.
 services:
 
   pygeoapi:
@@ -22,3 +26,9 @@ services:
     volumes:
       - ./jupyter/content/data:/jupyter/content/data:ro
       - ./services/pycsw-config.cfg:/etc/pycsw/pycsw.cfg:ro
+
+networks:
+  default:
+    external:
+      # Provided by and shared with the Workshop Jupyter Notebook.
+      name: workshop_default
