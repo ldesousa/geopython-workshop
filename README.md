@@ -28,11 +28,13 @@ cd geopython-workshop.git/workshop/jupyter
 
 All services are started using a [Docker Compose file](https://github.com/geopython/geopython-workshop/blob/master/workshop/docker-compose.yml).
 
+Windows users; use [powershell](https://en.wikipedia.org/wiki/PowerShell) or [Linux Subsystem](https://en.wikipedia.org/wiki/Windows_Subsystem_for_Linux) to run below commands.
+
 ```bash
 cd workshop
 # start workshop
 ./geopython-workshop-ctl.sh start
-# display URL and open in default web browser
+# display URL and open in default web browser, if a browser does not open, then copy the url from the command output to your browser.
 ./geopython-workshop-ctl.sh url
 
 # Browse to http://127.0.01:5000 for workshop pygeoapi service
@@ -41,12 +43,13 @@ cd workshop
 ./geopython-workshop-ctl.sh stop
 ```
 
-NB Jupyter notebook needs a **token**. The token is displayed on startup:
+NB [Jupyter notebook](https://en.wikipedia.org/wiki/Project_Jupyter) needs a **token**. The token is displayed in the jupyter container logs on startup:
 
 `http://127.0.0.1:8888/?token=<longtokenhexstring>`.
 
 As Docker Compose may run in background you can make logging
-output visible via `docker logs --follow geopython-workshop-jupyter`.
+output visible via `docker logs --follow geopython-workshop-jupyter`. Or 
+in Docker Desktop UI, select the jupyter container to see its logs.
 
 ### Notes
 
