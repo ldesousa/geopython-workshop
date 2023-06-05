@@ -1,4 +1,4 @@
-[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/geopython/geopython-workshop/master?filepath=workshop%2Fjupyter%2Fcontent%2Fnotebooks%2F01-introduction.ipynb)
+[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/geopython/geopython-workshop/master?labpath=workshop%2Fjupyter%2Fcontent%2Fnotebooks%2F01-introduction.ipynb)
 
 # Doing Geospatial in Python
 
@@ -14,15 +14,7 @@ and [Docker Compose](https://docs.docker.com/compose/) on your system
 The Docker Images for this workshop are [available on DockerHub](https://hub.docker.com/r/geopython/geopython-workshop).
 The name of the workshop Image is `geopython/geopython-workshop[:latest]`.
 Note that the Docker Images contain mainly all (Python) components/dependencies. The actual workshop content (data+notebooks) will be
-Docker-Volume-mounted.
-
-You may always build a Docker Image from this repo yourself:
-
-```bash
-git clone https://github.com/geopython/geopython-workshop.git
-cd geopython-workshop.git/workshop/jupyter
-./build.sh
-```
+Docker-Volume-mounted. There is no need to build the Docker Image yourself (see below), except for testing and development.
 
 ## Running
 
@@ -48,6 +40,16 @@ NB [Jupyter notebook](https://en.wikipedia.org/wiki/Project_Jupyter) needs a **t
 As Docker Compose may run in background you can make logging
 output visible via `docker logs --follow geopython-workshop-jupyter`. Or 
 in Docker Desktop UI, select the jupyter container to see its logs.
+ 
+### Building
+
+You may always build a Docker Image from this repo yourself, e.g. for bugfixing:
+
+```bash
+git clone https://github.com/geopython/geopython-workshop.git
+cd geopython-workshop.git/workshop/jupyter
+./build.sh
+```
 
 ### Notes
 
