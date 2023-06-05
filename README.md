@@ -2,6 +2,8 @@
 
 # Doing Geospatial in Python
 
+See Workshop entry doc https://geopython.github.io/geopython-workshop.
+
 ## Installation
 
 ### Requirements
