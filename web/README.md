@@ -44,6 +44,8 @@ git push origin master
 
 ### Updating a page
 
+Like adding a page. Edit and commit/push.
+
 ## Publishing updates to the live site
 
 Updates are automatically pushed to GitHub Pages.  To publish updates
