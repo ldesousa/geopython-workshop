@@ -22,6 +22,8 @@ identification:
         spatial:
             - bbox: [-180,-90,180,90]
               crs: 4326
+        temporal:
+            - begin: 2022-06-02
     dates:
         creation: 2009-12-02
         publication: 2009-12-02
