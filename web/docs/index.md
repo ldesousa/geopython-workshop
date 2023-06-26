@@ -162,16 +162,16 @@ sudo ufw allow 8001/tcp
 ```
 
 Within VirtualBox menu you can then map these ports to the same ports on your local system, so the workshop
-is accessed with your local browser via http://127.0.0.1:8888?token=..., http://127.0.0.1:5000 etc.
+is accessed with your local browser via `http://127.0.0.1:8888?token=...`, `http://127.0.0.1:5000` etc.
 
-### Running Docker with privileged user in linux
+### Running Docker with privileged user in Linux
 
 Currently, the workshop doesn't support a docker installation that needs the `sudo` command to run Docker. The following [post-installation step](https://docs.docker.com/engine/install/linux-postinstall/#manage-docker-as-a-non-root-user) in the Docker documentation must be performed before running our script to start the workshop.
 
 ### Cannot Access URL
 
-The workshop should run on http://127.0.0.1:8888?token="token" but in some cases this may not work.
-In that case you could also try http://0.0.0.0:8888?token="token".
+The workshop should run on `http://127.0.0.1:8888?token=<token>` but in some cases this may not work.
+In that case you could also try `http://0.0.0.0:8888?token=<token>`.
 
 ### MacOS Monterey issue
 
@@ -189,7 +189,7 @@ to launch the Workshop Binder Instance. Startup takes a while, be patient...
 
 Additional notes for Binder session:
 
-* session timeout is about 10 mins, if that happens, refreshing the page will not help, you need to start a new session using the button above
+* session timeout is about 10 minutes, if that happens, refreshing the page will not help, you need to start a new session using the button above
 
 ## Support
 
