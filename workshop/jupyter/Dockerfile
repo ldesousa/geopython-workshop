@@ -2,7 +2,7 @@
 #
 # Authors: Just van den Broecke <justb4@gmail.com>
 #
-# Copyright (c) 2019 Just van den Broecke
+# Copyright (c) 2019-2024 Just van den Broecke
 #
 # Permission is hereby granted, free of charge, to any person
 # obtaining a copy of this software and associated documentation
@@ -26,7 +26,6 @@
 # OTHER DEALINGS IN THE SOFTWARE.
 #
 # =================================================================
-
 FROM ubuntu:jammy
 
 LABEL maintainer="Just van den Broecke <justb4@gmail.com>"
@@ -49,7 +48,6 @@ COPY ./requirements.txt /jupyter/requirements.txt
 
 # Run all installs
 RUN \
-    # Install dependencies
     apt-get update -y \
     && apt-get upgrade -y \
     && apt-get install -y --fix-missing --no-install-recommends ${DEB_BUILD_DEPS}  \
@@ -62,8 +60,6 @@ RUN \
 	&& apt-get remove --purge ${DEB_BUILD_DEPS} -y \
 	&& apt autoremove -y  \
 	&& rm -rf /var/lib/apt/lists/* 
-	# Patch for now until https://github.com/jupyter-widgets/ipyleaflet/issues/865 solved in version
-	# && sed -i /usr/local/lib/python3.10/dist-packages/ipyleaflet/basemaps.py -e 's/com\/\/tiles/com\/tiles/g'
 
 COPY ./entrypoint.sh /jupyter/start.sh
 
